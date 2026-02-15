@@ -113,7 +113,7 @@ def get_list():
                 downloadURL = 'https://www.manning.com/dashboard/download?id=downloadForm-' + author
                 print('Downloading', title, '...')
                 dl = s.post(downloadURL, cookies=s.cookies,
-                            headers=headers, data=download_payload)
+                            headers=headers, data=download_payload, verify=False)
                 # PURPOSE: Some free titles are only in PDF format, this can be determined from the amount of hidden inputs
                 if len(download_payload) <= 4:
                     extension = '.pdf'
