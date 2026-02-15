@@ -72,8 +72,8 @@ def get_list():
             'submit': ''
         }
         # PURPOSE: Log in
-        s.post(loginURL, cookies=s.cookies, headers=headers, data=data)
-        dashboard = s.get(dashboardURL)
+        s.post(loginURL, cookies=s.cookies, headers=headers, data=data, verify=False)
+        dashboard = s.get(dashboardURL, verify=False)
         # PURPOSE: Parse the dashboard with up to 999 products
         soup = BeautifulSoup(dashboard.text, 'html.parser')
         div_container = soup.find('table', {'id': 'productTable'})
